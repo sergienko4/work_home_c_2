@@ -4,11 +4,76 @@
 #include "node.h"
 
 void Ex1();
-char** exLogic(char c, int* arrayLength);
+void Ex2();
+void Ex3();
+
+char** exOneLogic(char c, int* arrayLength);
+char* exTwoLogic(char* str);
+char commonestLetter(char* filename);
+
 void main() {
-	Ex1();
+	//Ex1();
+	//Ex2();
+	Ex3();
 }
-char** exLogic(char c, int* arrayLength) {
+void Ex3() {
+	char 
+	char commonestLetter(char* filename);
+}
+void Ex2() {
+	int strLength = 0;
+	char* strNew = NULL;
+	char* str = (char*)malloc(sizeof(char) * 101);
+
+	// get input
+	printf("Enter input MAX 100\n");
+	gets(str);
+	//gets(str);
+	//scanf("%s",str);
+	strLength = strlen(str);
+	strNew = exTwoLogic(str);
+
+	// print new string 
+	printf("new stirng:");
+	puts(strNew);
+	printf("\n");
+
+	free(strNew);
+	free(str);
+
+}
+char* exTwoLogic(char* str) {
+	char* strNew = NULL;
+	int i = 0, j = 0;
+	int count = 0;
+
+
+	for (i = 0; str[i] != '\0'; i++) {
+		if (str[i] != 32)
+			if (str[i] > 57 || str[i] < 48) {
+				count++;
+			}
+	}
+
+	// create new string / array
+	strNew = (char*)malloc(sizeof(char) * (count + 1));
+
+	// build new string
+	for (i = 0; i < str[i] != '\0'; i++) {
+		if (str[i] != 32)
+			if (str[i] > 57 || str[i] < 48) {
+				strNew[j] = str[i];
+				j++;
+			}
+	}
+	// end string
+	if (count > 0)
+		strNew[j] = '\0';
+
+	return strNew;
+
+}
+char** exOneLogic(char c, int* arrayLength) {
 	Node* list = NULL;
 	char c_upp = NULL;
 	Node* temp = NULL;
@@ -89,16 +154,16 @@ void Ex1() {
 	char c_small = NULL;
 	char** arr;
 	printf("split by: \n");
-	
+
 	//get input char
 	c_small = tolower(getchar());
 
 	// build array of strings
-	arr = exLogic(c_small, &arrayLength);
+	arr = exOneLogic(c_small, &arrayLength);
 
 	printf("\n\noutput: \n");
 	// print output
-	for(i = 0; i < arrayLength; i++) {
+	for (i = 0; i < arrayLength; i++) {
 		puts(arr[i]);
 		free(arr[i]);
 	}
